@@ -1,5 +1,6 @@
 library(shiny)
 library(ggplot2)
+library(scales)
 
 ui <- shinyUI(fluidPage(
   
@@ -48,7 +49,11 @@ server <- function(input, output) {
     
     out_plot<-ggplot(data=df,aes(x=date))+
       geom_line(aes(y=job_1_pay),color="blue")+
-      geom_line(aes(y=job_2_pay),color="red")
+      geom_line(aes(y=job_2_pay),color="red")+
+      xlab("Date")+
+      ylab("Daily Pay")+
+      ggtitle("Daily Pay by Job")+
+      scale_y_continuous(labels=scales::dollar_format())
     
     out_plot
   })
