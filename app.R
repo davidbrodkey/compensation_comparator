@@ -14,6 +14,13 @@ ui <- shinyUI(fluidPage(
                         ,"Base Pay"
                         ,value=0
                         )
+           ,
+           textInput("job_1_ticker"
+                     ,"Ticker")
+           ,
+           fileInput("job_1_file"
+                     ,"Bonus/Stock File"
+                     ,accept=".csv")
     )
     ,
     column(2,
@@ -23,6 +30,13 @@ ui <- shinyUI(fluidPage(
                         ,"Base Pay"
                         ,value=0
                         )
+           ,
+           textInput("job_2_ticker"
+                     ,"Ticker")
+           ,
+           fileInput("job_2_file"
+                     ,"Bonus/Stock File"
+                     ,accept=".csv")
            )
     ,
     column(8,
