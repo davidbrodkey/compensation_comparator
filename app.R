@@ -46,6 +46,21 @@ ui <- shinyUI(fluidPage(
 ))
 
 server <- function(input, output) {
+  #Capture File inputs
+  file_job_1<-reactive({
+    if(is.null(input$job_1_file)){
+      return(NULL)
+    }
+    read.csv(input$job_1_file$datapath)
+  })
+  
+  file_job_2<-reactive({
+    if(is.null(input$job_2_file)){
+      return(NULL)
+    }
+    read.csv(input$job_2_file$datapath)
+  })
+  
   
   salary_table<-reactive({
     date_list<-Sys.Date()+1:(365*5)
